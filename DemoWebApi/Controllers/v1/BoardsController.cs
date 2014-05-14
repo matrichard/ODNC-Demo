@@ -1,13 +1,11 @@
-using System;
 using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
-using System.Net.Http.Formatting;
 using System.Web.Http;
 using DemoWebApi.Data;
 using DemoWebApi.Models;
 
-namespace DemoWebApi.Controllers
+namespace DemoWebApi.Controllers.v1
 {
     public class BoardsController : ApiController
     {
@@ -87,7 +85,7 @@ namespace DemoWebApi.Controllers
         [ActionName("Close")]
         public HttpResponseMessage Close(int id)
         {
-            var response = new HttpResponseMessage(HttpStatusCode.OK);
+            var response = new HttpResponseMessage(HttpStatusCode.NoContent);
 
             var board = this.repository.GetBoard(id);
             if (board == null)
@@ -106,7 +104,7 @@ namespace DemoWebApi.Controllers
                 throw new HttpResponseException(response);
             }
 
-            board.State = BoardState.Active;
+            board.State = BoardState.Closed;
             this.repository.Save(board);
 
             return response;

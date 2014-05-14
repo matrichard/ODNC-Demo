@@ -5,7 +5,7 @@ using System.Web.Http;
 using DemoWebApi.Data;
 using DemoWebApi.Models;
 
-namespace DemoWebApi.Controllers
+namespace DemoWebApi.Controllers.v1
 {
     public class CardsController : ApiController
     {

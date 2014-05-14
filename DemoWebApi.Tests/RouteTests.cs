@@ -2,6 +2,7 @@
 using System.Net.Http;
 using System.Web.Http;
 using DemoWebApi.Controllers;
+using DemoWebApi.Controllers.v1;
 using DemoWebApi.Tests.Utils;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 

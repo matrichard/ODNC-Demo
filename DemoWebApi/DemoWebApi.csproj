@@ -168,9 +168,9 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
-    <Compile Include="Controllers\BoardsController.cs" />
-    <Compile Include="Controllers\CardsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\v1\BoardsController.cs" />
+    <Compile Include="Controllers\v1\CardsController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Data\BoardContext.cs" />
     <Compile Include="Data\BoardRepository.cs" />

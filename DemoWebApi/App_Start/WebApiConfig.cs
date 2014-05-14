@@ -23,6 +23,12 @@ namespace DemoWebApi
         {
 
             #region Routes
+
+            config.Routes.MapHttpRoute(
+                name: "SubControllerApi",
+                routeTemplate: "api/{parentController}/{parentId}/{controller}/{id}",
+                defaults: new { id = RouteParameter.Optional }
+            );
             
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
@@ -32,11 +38,11 @@ namespace DemoWebApi
 
             #region Action
 
-            //config.Routes.MapHttpRoute(
-            //    name: ActionRoute,
-            //    routeTemplate: "api/{controller}/{id}/{action}",
-            //    defaults: new { action = RouteParameter.Optional}
-            //);
+            config.Routes.MapHttpRoute(
+                name: "ActionRoute",
+                routeTemplate: "api/{controller}/{id}/{action}",
+                defaults: new { action = RouteParameter.Optional }
+            );
 
             #endregion
 
@@ -55,11 +61,7 @@ namespace DemoWebApi
 
             #region SubController Route
 
-            //config.Routes.MapHttpRoute(
-            //    name: "SubControllerApi",
-            //    routeTemplate: "api/{parentController}/{parentId}/{controller}/{id}",
-            //    defaults: new { id = RouteParameter.Optional }
-            //);
+            
 
             #endregion
 
@@ -67,16 +69,16 @@ namespace DemoWebApi
 
             #region Versionning
 
-            //config.Services.Replace(typeof(IHttpControllerSelector), new NamespaceHttpControllerSelector(config));
-            //config.Services.Replace(typeof(IHttpControllerActivator), new ControllerActivator());
+            config.Services.Replace(typeof(IHttpControllerSelector), new NamespaceHttpControllerSelector(config));
+            config.Services.Replace(typeof(IHttpControllerActivator), new ControllerActivator());
 
             #endregion
 
-            //config.Routes.MapHttpRoute(
-            //    name: "Version",
-            //    routeTemplate: "api/{version}/{controller}/{id}",
-            //    defaults: new { id = RouteParameter.Optional }
-            //);
+            config.Routes.MapHttpRoute(
+                name: "Version",
+                routeTemplate: "api/{version}/{controller}/{id}",
+                defaults: new { id = RouteParameter.Optional }
+            );
 
             #endregion
 
@@ -84,17 +86,17 @@ namespace DemoWebApi
 
             #region MessageHandler
 
-            //config.MessageHandlers.Add(new MethodOverrideHandler());
+            config.MessageHandlers.Add(new MethodOverrideHandler());
 
             #endregion
 
             #region CamelCasing
 
-            //config
-            //    .Formatters
-            //    .JsonFormatter
-            //    .SerializerSettings
-            //    .ContractResolver = new CamelCasePropertyNamesContractResolver();
+            config
+                .Formatters
+                .JsonFormatter
+                .SerializerSettings
+                .ContractResolver = new CamelCasePropertyNamesContractResolver();
 
             #endregion
 
